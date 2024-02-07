@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                
+
                 <div class="card">
                     <div class="card-header">{{ __('Dashboard') }}</div>
 
@@ -18,38 +18,42 @@
                             <thead>
                                 <tr>
 
-                                    <th>#</th>
-                                    <th>Title</th>
-                                    <th>Description</th>
+                                    <th>ID</th>
                                     <th>Name</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    <th>Age</th>
+                                    <th>Gender</th>
+                                    <th>Action</th>
 
                                 </tr>
                             </thead>
                             <tbody>
 
-                                <tr>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-
-
-                                </tr>
-                                 <tr>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-
-
-                                </tr>
-
+                                @if ($records)
+                                    @foreach ($records as $record)
+                                        <tr>
+                                            <td>{{ $record['id'] }}</td>
+                                            <td>{{ $record['name'] }}</td>
+                                            <td>{{ $record['age'] }}</td>
+                                            <td>{{ $record['gender'] }}</td>
+                                            <td>
+                                                <form action="{{ route('show') }}" method="get">
+                                                    @csrf
+                                                    <input type="hidden" name="record_id" value="{{ $record['id'] }}">
+                                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                                </form>
+                                                <form action="{{ route('delete') }}" method="post">
+                                                    @csrf
+                                                    <input type="hidden" name="record_id" value="{{ $record['id'] }}">
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="4">No records available</td>
+                                    </tr>
+                                @endif
 
                             </tbody>
 

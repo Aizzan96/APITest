@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +20,12 @@ Route::get('/', function () {
 });
 
 Route::get('/app', [HomeController::class, 'app'])->name('app');
+Route::get('/test/index', [HomeController::class, 'index'])->name('index');
 Route::get('/test/show', [HomeController::class, 'show'])->name('show');
-Route::get('/test/edit', [HomeController::class, 'edit'])->name('edit');
+Route::post('/test/update', [HomeController::class, 'update'])->name('update');
+Route::post('/test/delete', [HomeController::class, 'delete'])->name('delete');
+
+
+
 
 
