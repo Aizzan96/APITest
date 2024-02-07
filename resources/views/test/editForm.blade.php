@@ -6,14 +6,15 @@
             <div class="col-md-8">
 
                 <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
+                    <div class="card-header">{{ $record['name']}}</div>
 
                     <div class="card-body">
 
                         <form action="{{ route('update') }}" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <input type="hidden" class="form-control" name="id" value="{{ $record['id'] }}">
+                                <label for="id" class="form-label">ID</label>
+                                <input readonly type="text" class="form-control" name="id" value="{{ $record['id'] }}">
                             </div>
 
                             <div class="mb-3">
@@ -30,10 +31,21 @@
 
                             <div class="mb-3">
                                 <label for="gender" class="form-label">Gender</label>
-                                <input type="text" class="form-control" id="gender" name="gender"
-                                    value="{{ $record['gender'] }}">
-                            </div>
+                                <div class="form-select-list">
+                                    <select class="form-control custom-select-value" id="gender" name="gender">
+                                        @if ($record)
+                                            <option selected>{{ $record['gender'] }}</option>
+                                        @else
+                                            <option selected disabled>Pilih Jantina</option>
+                                        @endif
+                                        <option>Male</option>
+                                        <option>Female</option>
 
+                                    </select>
+
+                                </div>
+                            </div>
+                            <a class="btn btn-success" href="javascript:history.back()">Back</a>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
 

@@ -46,7 +46,7 @@ class HomeController extends Controller
     {
         
        
-        $response = Http::post(route('api.update'), $request->all());
+        $response = Http::put(route('api.update'), $request->all());
         $record = $response->json();
         
        return redirect()->route('index');

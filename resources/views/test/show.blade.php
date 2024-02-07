@@ -21,7 +21,7 @@
                                     {{-- <th>ID</th> --}}
                                     <th>Name</th>
                                     <th>Age</th>
-                                    <th>Gender</th>
+                                    {{-- <th>Gender</th> --}}
                                     <th>Action</th>
 
                                 </tr>
@@ -34,7 +34,7 @@
                                             {{-- <td>{{ $record['id'] }}</td> --}}
                                             <td>{{ $record['name'] }}</td>
                                             <td>{{ $record['age'] }}</td>
-                                            <td>{{ $record['gender'] }}</td>
+                                            {{-- <td>{{ $record['gender'] }}</td> --}}
                                             <td>
                                                 <form action="{{ route('show') }}" method="get" style="display:inline;">
                                                     @csrf
