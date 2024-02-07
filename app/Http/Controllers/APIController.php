@@ -13,6 +13,12 @@ class APIController extends Controller
         $records = Record::all();
         return response()->json($records);
     }
+     public function create(Request $request)
+    {
+        $record = Record::create($request->all());
+        return response()->json($record, 201); // Return with HTTP status code 201 (Created)
+    }
+
         
     public function show($recordId)
     {
@@ -22,7 +28,7 @@ class APIController extends Controller
 
     public function update(Request $request)
     {
-        $recordId = $request -> input('record_id');
+        $recordId = $request -> input('id');
         $record = Record::find($recordId);
         $record->update($request->all());
         return response()->json($record);

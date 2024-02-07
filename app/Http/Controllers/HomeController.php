@@ -58,7 +58,7 @@ class HomeController extends Controller
        
         
         $recordId = $request -> input('record_id');
-        $response = Http::post(route('api.delete',['id' => $recordId]));
+        $response = Http::delete(route('api.delete',['id' => $recordId]));
         $record = $response->json();
         $message = json_encode($record['message']); 
         

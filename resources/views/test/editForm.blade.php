@@ -13,8 +13,7 @@
                         <form action="{{ route('update') }}" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <label for="id" class="form-label">ID</label>
-                                <input type="text" class="form-control" name="record_id" value="{{ $record['id'] }}">
+                                <input type="hidden" class="form-control" name="id" value="{{ $record['id'] }}">
                             </div>
 
                             <div class="mb-3">

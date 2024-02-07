@@ -6,7 +6,7 @@
             <div class="col-md-8">
 
                 <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
+                    <div class="card-header">{{ __('Records') }}</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -18,7 +18,7 @@
                             <thead>
                                 <tr>
 
-                                    <th>ID</th>
+                                    {{-- <th>ID</th> --}}
                                     <th>Name</th>
                                     <th>Age</th>
                                     <th>Gender</th>
@@ -31,17 +31,17 @@
                                 @if ($records)
                                     @foreach ($records as $record)
                                         <tr>
-                                            <td>{{ $record['id'] }}</td>
+                                            {{-- <td>{{ $record['id'] }}</td> --}}
                                             <td>{{ $record['name'] }}</td>
                                             <td>{{ $record['age'] }}</td>
                                             <td>{{ $record['gender'] }}</td>
                                             <td>
-                                                <form action="{{ route('show') }}" method="get">
+                                                <form action="{{ route('show') }}" method="get" style="display:inline;">
                                                     @csrf
                                                     <input type="hidden" name="record_id" value="{{ $record['id'] }}">
                                                     <button type="submit" class="btn btn-primary">Edit</button>
                                                 </form>
-                                                <form action="{{ route('delete') }}" method="post">
+                                                <form action="{{ route('delete') }}" method="post" style="display:inline;">
                                                     @csrf
                                                     <input type="hidden" name="record_id" value="{{ $record['id'] }}">
                                                     <button type="submit" class="btn btn-danger">Delete</button>

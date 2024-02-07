@@ -22,9 +22,10 @@ use App\Http\Controllers\HomeController;
 
 
 Route::get('/records/index', [APIController::class, 'index'])->name('api.index');
+Route::post('/records/create', [APIController::class, 'create'])->name('api.create');
 Route::get('/records/show/{id}', [APIController::class, 'show'])->name('api.show');
-Route::post('/records/update', [APIController::class, 'update'])->name('api.update');
-Route::post('/records/delete/{id}', [APIController::class, 'delete'])->name('api.delete');
+Route::put('/records/update', [APIController::class, 'update'])->name('api.update');
+Route::delete('/records/delete/{id}', [APIController::class, 'delete'])->name('api.delete');
 
 
 

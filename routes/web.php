@@ -16,7 +16,8 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('index');
+;
 });
 
 Route::get('/app', [HomeController::class, 'app'])->name('app');
